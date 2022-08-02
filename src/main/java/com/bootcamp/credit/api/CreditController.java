@@ -11,32 +11,33 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/credits")
 public class CreditController {
 
-    @Autowired
-    private CreditService creditService;
+  @Autowired
+  private CreditService creditService;
 
-    @PostMapping
-    public Mono<Credit> register(@RequestBody Credit credit){
-        return creditService.save(credit);
-    }
+  @PostMapping
+  public Mono<Credit> register(@RequestBody Credit credit) {
+    return creditService.save(credit);
+  }
 
-    @GetMapping
-    public Flux<Credit> getAllCredits(){
-        return creditService.getAll();
-    }
+  @GetMapping
+  public Flux<Credit> getAllCredits() {
+    return creditService.getAll();
+  }
 
-    @GetMapping("{id}")
-    public Mono<Credit> getCreditById(@PathVariable String id){
-        return creditService.findById(id);
-    }
+  @GetMapping("{documentNumber}")
+  public Mono<Credit> getCreditById(@PathVariable String documentNumber) {
+    return creditService.findById(documentNumber);
+  }
 
-    @DeleteMapping("{id}")
-    public Mono<Void> deleteCustomer(@PathVariable String id){
-        return creditService.delete(id);
-    }
+  @DeleteMapping("{documentNumber}")
+  public Mono<Void> deleteCustomer(@PathVariable String documentNumber) {
+    return creditService.delete(documentNumber);
+  }
 
-    @PutMapping("{id}")
-    public Mono<Credit> updateCredit(@PathVariable String id, @RequestBody Credit credit){
-        return  creditService.update(id,credit);
-    }
+  @PutMapping("{documentNumber}")
+  public Mono<Credit> updateCredit(@PathVariable String documentNumber,
+      @RequestBody Credit credit) {
+    return creditService.update(documentNumber, credit);
+  }
 
 }

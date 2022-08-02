@@ -1,30 +1,24 @@
-package com.bootcamp.credit.model.document;
+package com.bootcamp.credit.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Getter
-@Setter
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "credits")
-public class Credit {
+public class CreditDto {
 
-  @Id
   private String documentNumber;
   private String typeCredit;
   private String paymentDay;
   private double amount;
 
+  // public CreditDto toModel(Credit credit) {
   //
-  // public Credit toModel(Credit credit) {
-  //
-  // return Credit.builder()
+  // return CreditDto.builder()
   // .documentNumber(credit.getDocumentNumber())
   // .typeCredit(credit.getTypeCredit())
   // .paymentDay(credit.getPaymentDay())

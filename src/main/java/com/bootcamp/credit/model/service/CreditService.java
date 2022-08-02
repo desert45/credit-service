@@ -4,15 +4,18 @@ import com.bootcamp.credit.model.document.Credit;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface CreditService  {
+public interface CreditService {
 
-    Flux<Credit> getAll();
-    Mono<Credit> save(Credit credit);
+  Flux<Credit> getAll();
 
-    Mono<Credit> findById(String id);
-    Mono<Boolean> existById(String id);
+  Mono<Credit> save(Credit credit);
 
-    Mono<Void> delete(String id);
+  Mono<Credit> findById(String documentNumber);
 
-    Mono<Credit> update(String id, Credit credit);
+  Mono<Boolean> existById(String documentNumber);
+
+  Mono<Void> delete(String documentNumber);
+
+  Mono<Credit> update(String documentNumber, Credit credit);
+
 }
